@@ -14,6 +14,8 @@ services:
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=postgres
 
+        - SECRET_KEY=8o*uo5_uv+6d7yd($$-d7p9)f=0gqf630+u79el@byead)&cxwu
+        - DEBUG=1
   db:
     image: postgres:11
     volumes:
