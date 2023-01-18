@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     #3rd party apps
     'crispy_forms',
+    'allauth',
+    'allauth.account',
     #local apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
@@ -129,7 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS =[os.path.join(BASE_DIR,'static'),]
+STATICFILES_DIRS =[os.path.join(BASE_DIR,'static')]
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 #static file finders is implicitly set for us but i can set it explicitly
 STATICFILES_FINDERS = [
@@ -140,4 +143,18 @@ STATICFILES_FINDERS = [
 AUTH_USER_MODEL= 'users.CustomUser'
 
 LOGIN_REDIRECT_URL ='home'
-LOGOUT_REDIRECT_URL ='home'
+ACCOUNT_REDIRECT_URL ='home'
+#django-allauth configuration 
+SITE_ID=1
+AUTHENTICATION_BACKENDS = (
+'django.contrib.auth.backends.ModelBackend',
+'allauth.account.auth_backends.AuthenticationBackend', # new
+)
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #emails will be routed back at the console
+ACCOUNT_SESSION_REMEMBER= True #django all-auth to remember sessions
+
+ACCOUNT_USERNAME_REQUIRED = False  
+ACCOUNT_AUTHENTICATION_METHOD='email'
+ACCOUNT_EMAIL_REQUIRED = True 
+ACCOUNT_UNIQUE_EMAIL = True 
