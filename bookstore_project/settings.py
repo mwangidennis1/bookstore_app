@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #local apps
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'books.apps.BooksConfig',
 ]
 #django-crispy-forms
 CRISPY_TEMPLATE_PACK ='bootstrap4'
