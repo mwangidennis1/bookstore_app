@@ -16,6 +16,9 @@ services:
 
         - SECRET_KEY=8o*uo5_uv+6d7yd($$-d7p9)f=0gqf630+u79el@byead)&cxwu
         - DEBUG=1
+        - STRIPE_TEST_PUBLISHABLE_KEY=<pk_test_your_publishable_key_here>
+        - STRIPE_TEST_SECRET_KEY=<sk_test_your_secret_key_here> 
+
   db:
     image: postgres:11
     volumes:
