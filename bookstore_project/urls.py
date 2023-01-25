@@ -20,7 +20,7 @@ from django.urls import path,include
 
 urlpatterns = [
     #django admin
-    path('admin/', admin.site.urls),
+    path('mirango/', admin.site.urls),
     #user management
     path('accounts/',include('allauth.urls')),
     #local apps
@@ -28,5 +28,11 @@ urlpatterns = [
     path('',include('pages.urls')),
     path('books/',include('books.urls')),
 ] + static(settings.MEDIA_URL ,document_root =settings.MEDIA_ROOT) # MEDIA URL
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns =[
+        path('__debug__/',include(debug_toolbar.urls)),
+    ] + urlpatterns
 
 
