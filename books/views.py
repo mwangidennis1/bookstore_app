@@ -8,7 +8,7 @@ class BookListView(LoginRequiredMixin,ListView):
     model = Book
     context_object_name = 'book_list' # renaming my object list to make it friendlier
     template_name = 'books/book_list.html'
-    login_url = 'account_login' # permissions for only a logged in user to see books and a url to logon if not 
+    login_url = 'account_login' # permissions for only a logged in user to see books and a url to login if not 
 
 class BookDetailView(LoginRequiredMixin,PermissionRequiredMixin,DetailView):
     model=Book
