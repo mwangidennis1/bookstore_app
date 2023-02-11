@@ -27,6 +27,7 @@ urlpatterns = [
     path('orders/',include('orders.urls')),
     path('',include('pages.urls')),
     path('books/',include('books.urls')),
+    path('apis/v1' ,include('apis.urls')),
 ] + static(settings.MEDIA_URL ,document_root =settings.MEDIA_ROOT) # MEDIA URL
 
 if settings.DEBUG:
